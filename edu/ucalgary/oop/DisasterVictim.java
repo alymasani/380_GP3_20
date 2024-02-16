@@ -2,7 +2,6 @@ package edu.ucalgary.oop;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,7 +14,7 @@ public class DisasterVictim {
     private String gender;
     private String comments;
     private List<Supply> personalBelongings;
-    private list<FamilyRelation> familyConnections;
+    private List<FamilyRelation> familyConnections;
     private MedicalRecord[] medicalRecords;
     private static int socialIdCounter = 1000;
 
@@ -27,14 +26,14 @@ public class DisasterVictim {
         this.gender = "";
         this.comments = "";
         this.personalBelongings = new ArrayList<>();
-        this.familyConnections = new FamilyRelation[0];
+        this.familyConnections = new ArrayList<>();
         this.medicalRecords = new MedicalRecord[0];
         this.socialIdCounter++;
     }
 
-    public static boolean dateValidator(String date){
+    public static boolean dateValidator(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        try{
+        try {
             Date check = sdf.parse(date);
             return true;
         } catch (ParseException e) {
@@ -43,10 +42,9 @@ public class DisasterVictim {
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        if(dateValidator(dateOfBirth) == true){
+        if (dateValidator(dateOfBirth)) {
             this.dateOfBirth = dateOfBirth;
-        };
-        
+        }
     }
 
     public String getDateOfBirth() {
@@ -85,10 +83,10 @@ public class DisasterVictim {
         return entryDate;
     }
 
-    public String setEntryDate(String date){
-        if(dateValidator(date) == true){
+    public void setEntryDate(String date) {
+        if (dateValidator(date)) {
             this.entryDate = date;
-        };
+        }
     }
 
     public void setGender(String gender) {
@@ -99,11 +97,11 @@ public class DisasterVictim {
         return gender;
     }
 
-    public void setFamilyConnections(FamilyRelation[] familyConnections) {
+    public void setFamilyConnections(List<FamilyRelation> familyConnections) {
         this.familyConnections = familyConnections;
     }
 
-    public list<FamilyRelation> getFamilyConnections() {
+    public List<FamilyRelation> getFamilyConnections() {
         return familyConnections;
     }
 
@@ -123,16 +121,15 @@ public class DisasterVictim {
         this.personalBelongings.remove(supply);
     }
 
-    public list<Supply> getPersonalBelongings() {
+    public List<Supply> getPersonalBelongings() {
         return personalBelongings;
     }
 
-    public void setMedicalRecords(MedicalRecord medicalRecords) {
+    public void setMedicalRecords(MedicalRecord[] medicalRecords) {
         this.medicalRecords = medicalRecords;
     }
 
-    public list<MedicalRecord> getMedicalRecords() {
+    public MedicalRecord[] getMedicalRecords() {
         return medicalRecords;
     }
-
 }
