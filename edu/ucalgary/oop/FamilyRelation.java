@@ -1,7 +1,5 @@
 package edu.ucalgary.oop;
 
-import java.security.PublicKey;
-
 public class FamilyRelation {
     private DisasterVictim personOne;
     private String relationshipTo;
