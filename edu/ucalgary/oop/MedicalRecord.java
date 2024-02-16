@@ -44,7 +44,7 @@ public class MedicalRecord {
 	}
 	
 	//constructors
-	MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment) {
+	public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment) {
 		this.location = location;
 		this.treatmentDetails = treatmentDetails;
 		dateValidity(dateOfTreatment);
