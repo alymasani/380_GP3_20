@@ -68,8 +68,8 @@ public class ReliefService {
 	}
 	
 	//constructors
-	ReliefService(Inquirer inquirer, DisasterVictim missingPerson, String dateOfInquiry,
-				  String infoProvided, Location lastKnownLocation)
+	public ReliefService(Inquirer inquirer, DisasterVictim missingPerson, String dateOfInquiry,
+			     String infoProvided, Location lastKnownLocation)
 	{
 		this.inquirer = inquirer;
 		this.missingPerson = missingPerson;
