@@ -36,7 +36,7 @@ public class Supply {
 	}
 	
 	//constructors
-	Supply(String type, int quantity) {
+	public Supply(String type, int quantity) {
 		this.type = type;
 		this.quantity = quantity;
 	}
