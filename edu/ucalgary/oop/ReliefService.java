@@ -16,7 +16,7 @@ import java.time.year;
  * provides a way of recording information about missing people.
 */
 
-public class ReliefService() {
+public class ReliefService {
 	private Inquirer inquirer;
 	private DisasterVictim missingPerson;
 	private String dateOfInquiry;
@@ -88,9 +88,6 @@ public class ReliefService() {
 							", Last Known Location: " + this.lastKnownLocation.getName();
 		return logDetails;
 	}
-	
-	private String expectedLogDetails = "Inquirer: John, Missing Person: Jane Alex, Date of Inquiry: 2024-02-10,
-	Info Provided: Looking for family member, Last Known Location: University of Calgary"; 
 	
 	/**
 	 * @param date should be in the form ****-**-** in the order of year-month-day
