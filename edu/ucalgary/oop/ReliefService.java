@@ -8,7 +8,7 @@
 package edu.ucalgary.oop;
 
 import java.util.regex.*;
-import java.time.year;
+import java.time.Year;
 
 /**
  * ReliefService is a class that helps an Inquirer record information about a
@@ -45,25 +45,25 @@ public class ReliefService {
 	}
 	
 	//setters
-	public setInquirer(Inquirer inquirer) {
+	public void setInquirer(Inquirer inquirer) {
 		this.inquirer = inquirer;
 	}
 	
-	public setMissingPerson(DisasterVictim missingPerson) {
+	public void setMissingPerson(DisasterVictim missingPerson) {
 		this.missingPerson = missingPerson;
 	}
 	
-	public setDateOfInquiry(String dateOfInquiry) {
+	public void setDateOfInquiry(String dateOfInquiry) {
 		dateValidity(dateOfInquiry);
 		
 		this.dateOfInquiry = dateOfInquiry;
 	}
 	
-	public setInfoProvided(String infoProvided) {
+	public void setInfoProvided(String infoProvided) {
 		this.infoProvided = infoProvided;
 	}
 	
-	public setLastKnownLocation(Location lastKnownLocation) {
+	public void setLastKnownLocation(Location lastKnownLocation) {
 		this.lastKnownLocation = lastKnownLocation;
 	}
 	
@@ -81,8 +81,8 @@ public class ReliefService {
 	
 	//helpers
 	public String getLogDetails() {
-		String logDetails = "Inquirer: " + this.inquirer.getFirstName() +
-							", Missing Person: " + this.missingPerson.getFirstName() + " " + this.missingPerson.getLastName() +
+		String logDetails = "Inquirer: " + this.inquirer.getFirstName() + //inquirer getter
+							", Missing Person: " + this.missingPerson.getFirstName() + this.missingPerson.getLastName() +
 							", Date of Inquiry: " + this.getDateOfInquiry() +
 							", Info Provided: " + this.getInfoProvided() +
 							", Last Known Location: " + this.lastKnownLocation.getName();
@@ -107,7 +107,7 @@ public class ReliefService {
 		final int yearUpperLim = 3000;
 		
 		//check if values are in bounds
-		String[] dateSplit = date.split('-');
+		String[] dateSplit = date.split("-");
 		
 		int year = Integer.parseInt(dateSplit[0]);
 		if ((year < yearLowerLim) || (year > yearUpperLim)) {

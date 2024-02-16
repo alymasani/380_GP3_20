@@ -1,5 +1,7 @@
 package edu.ucalgary.oop;
 
+import edu.ucalgary.oop.*;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.text.ParseException;

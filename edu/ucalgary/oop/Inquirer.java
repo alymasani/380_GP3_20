@@ -1,30 +1,21 @@
-/**
- * @author  Elias Poitras-Whitecalf <a href="mailto:elias.poitraswhiteca@ucalgary.ca">
- *          elias.poitraswhiteca@ucalgary.ca</a>
- * @version 1.0
- * @since   1.0
- */
 package edu.ucalgary.oop;
-/**
- * this is for an inquirer looking into a disaster victim and has the inquireres fname lname info and
- * phonenum
- */
-public class Inquirer {
-    private String firstName;
-    private String lastName;
-    private String info;
-    private String servicePhone;
 
-    public Inquirer(String firstName, String lastName,
-                    String servicePhone, String info){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.servicePhone = servicePhone;
-        this.info = info;
+public class Inquirer {
+    private String FIRST_NAME;
+    private String LAST_NAME;
+    private String INFO;
+    private String SERVICES_PHONE;
+
+    public Inquirer(String FIRST_NAME, String LAST_NAME,
+                    String SERVICES_PHONE, String INFO){
+        this.FIRST_NAME = FIRST_NAME;
+        this.LAST_NAME = LAST_NAME;
+        this.SERVICES_PHONE = SERVICES_PHONE;
+        this.INFO = INFO;
     }
 
-    public String getFirstName(){return this.firstName;}
-    public String getLastName(){return this.lastName;}
-    public String getInfo(){return this.info;}
-    public String getServicePhone(){return this.servicePhone;}
+    public String getFirstName(){return this.FIRST_NAME;}
+    public String getLastName(){return this.LAST_NAME;}
+    public String getInfo(){return this.INFO;}
+    public String getServicesPhoneNum(){return this.SERVICES_PHONE;}
 }
