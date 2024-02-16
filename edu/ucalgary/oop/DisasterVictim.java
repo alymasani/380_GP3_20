@@ -19,6 +19,7 @@ public class DisasterVictim {
     private List<FamilyRelation> familyConnections;
     private MedicalRecord[] medicalRecords;
     private static int socialIdCounter = 1000;
+    private int socialID;
 
     public DisasterVictim(String firstName, String entryDate) {
         this.firstName = firstName;
@@ -30,7 +31,7 @@ public class DisasterVictim {
         this.personalBelongings = new ArrayList<>();
         this.familyConnections = new ArrayList<>();
         this.medicalRecords = new MedicalRecord[0];
-        this.socialIdCounter++;
+        this.socialID = socialIdCounter++;
     }
 
     public static boolean dateValidator(String date) {
@@ -78,7 +79,7 @@ public class DisasterVictim {
     }
 
     public int getAssignedSocialID() {
-        return socialIdCounter;
+        return socialID;
     }
 
     public String getEntryDate() {
