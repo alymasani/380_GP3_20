@@ -1,24 +1,30 @@
+/**
+ * @author  Elias Poitras-Whitecalf <a href="mailto:elias.poitraswhiteca@ucalgary.ca">
+ *          elias.poitraswhiteca@ucalgary.ca</a>
+ * @version 1.0
+ * @since   1.0
+ */
 package edu.ucalgary.oop;
-
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
+/**
+ * this is for an inquirer looking into a disaster victim and has the inquireres fname lname info and
+ * phonenum
+ */
 public class Inquirer {
-    private String FIRST_NAME;
-    private String LAST_NAME;
-    private String INFO;
-    private String SERVICES_PHONE;
+    private String firstName;
+    private String lastName;
+    private String info;
+    private String servicePhone;
 
-    public Inquirer(String FIRST_NAME, String LAST_NAME,
-                    String SERVICES_PHONE, String INFO){
-        this.FIRST_NAME = FIRST_NAME;
-        this.LAST_NAME = LAST_NAME;
-        this.SERVICES_PHONE = SERVICES_PHONE;
-        this.INFO = INFO;
+    public Inquirer(String firstName, String lastName,
+                    String servicePhone, String info){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.servicePhone = servicePhone;
+        this.info = info;
     }
 
-    public String getFIRST_NAME(){return this.FIRST_NAME;}
-    public String getLAST_NAME(){return this.LAST_NAME;}
-    public String getINFO(){return this.INFO;}
-    public String getSERVICES_PHONE(){return this.SERVICES_PHONE;}
+    public String getFirstName(){return this.firstName;}
+    public String getLastName(){return this.lastName;}
+    public String getInfo(){return this.info;}
+    public String getServicePhone(){return this.servicePhone;}
 }

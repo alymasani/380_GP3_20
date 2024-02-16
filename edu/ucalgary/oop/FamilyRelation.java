@@ -1,5 +1,14 @@
+/**
+ * @author  Elias Poitras-Whitecalf <a href="mailto:elias.poitraswhiteca@ucalgary.ca">
+ *          elias.poitraswhiteca@ucalgary.ca</a>
+ * @version 1.0
+ * @since   1.0
+ */
 package edu.ucalgary.oop;
-
+/**
+ * FamilyRelation is a class that shows relationships between two people in DisasterVictim.
+ *
+ */
 public class FamilyRelation {
     private DisasterVictim personOne;
     private String relationshipTo;
