@@ -7,6 +7,9 @@
 
 package edu.ucalgary.oop;
 
+import java.util.regex.*;
+import java.time.Year;
+
 /**
  * MedicalRecord is a class that keeps track of the treatment a DisasterVictim has received.
  * It records the Location and the date of the treatment as well.
@@ -40,6 +43,8 @@ public class MedicalRecord {
 	}
 	
 	public void setDateOfTreatment(String dateOfTreatment) {
+		dateValidity(dateOfTreatment);
+		
 		this.dateOfTreatment = dateOfTreatment;
 	}
 	
@@ -70,7 +75,7 @@ public class MedicalRecord {
 		final int yearUpperLim = 3000;
 		
 		//check if values are in bounds
-		String[] dateSplit = date.split('-');
+		String[] dateSplit = date.split("-");
 		
 		int year = Integer.parseInt(dateSplit[0]);
 		if ((year < yearLowerLim) || (year > yearUpperLim)) {
