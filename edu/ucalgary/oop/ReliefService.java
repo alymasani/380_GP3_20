@@ -81,7 +81,7 @@ public class ReliefService {
 	
 	//helpers
 	public String getLogDetails() {
-		String logDetails = "Inquirer: " + this.inquirer.getFIRST_NAME() + //inquirer getter
+		String logDetails = "Inquirer: " + this.inquirer.getFirstName() + //inquirer getter
 							", Missing Person: " + this.missingPerson.getFirstName() + this.missingPerson.getLastName() +
 							", Date of Inquiry: " + this.getDateOfInquiry() +
 							", Info Provided: " + this.getInfoProvided() +
