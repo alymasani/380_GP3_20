@@ -61,6 +61,23 @@ public class DisasterVictim {
         this.ASSIGNED_SOCIAL_ID = counter++;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) throws IllegalArgumentException {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) throws IllegalArgumentException {
+        this.lastName = lastName;
+    }
+
+
     public void setDateOfBirth(String dateOfBirth) {
         if (dateValidator(dateOfBirth)) {
             this.dateOfBirth = dateOfBirth;
