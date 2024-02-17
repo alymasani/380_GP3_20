@@ -1,3 +1,11 @@
+/**
+ 
+@author  Aly Mohammed Masani <a href="mailto:alymohammed.masani@ucalgary.ca">
+alymohammed.masani@ucalgary.ca</a>
+@version 1.0
+@since   1.0
+*/
+
 package edu.ucalgary.oop;
 
 import edu.ucalgary.oop.*;
