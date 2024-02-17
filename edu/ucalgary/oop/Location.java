@@ -14,8 +14,8 @@ import java.util.List;
 public class Location {
     private String name;
     private String address;
-    private List<DisasterVictim> occupants;
-    private List<Supply> supplies;
+    private ArrayList<DisasterVictim> occupants;
+    private ArrayList<Supply> supplies;
 //constructor
     public Location(String name, String address) {
         this.setName(name);
@@ -32,11 +32,11 @@ public class Location {
         this.address = address;
     }
 
-    public void setOccupants(List<DisasterVictim> occupants) {
+    public void setOccupants(ArrayList<DisasterVictim> occupants) {
         this.occupants = occupants;
     }
 
-    public void setSupplies(List<Supply> supplies) {
+    public void setSupplies(ArrayList<Supply> supplies) {
         this.supplies = supplies;
     }
 
@@ -52,7 +52,7 @@ public class Location {
         return occupants;
     }
 
-    public List<Supply> getSupplies() {
+    public ArrayList<Supply> getSupplies() {
         return supplies;
     }
 
