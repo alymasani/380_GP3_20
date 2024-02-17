@@ -1,20 +1,29 @@
+/**
+ * @author  Elias Poitras-Whitecalf <a href="mailto:elias.poitraswhiteca@ucalgary.ca">
+ *          elias.poitraswhiteca@ucalgary.ca</a>
+ * @version 1.0
+ * @since   1.0
+ */
 package edu.ucalgary.oop;
 import java.util.ArrayList;
 import java.util.List;
-//
+/**
+ * Location class shows the location and address of the shelter. as well as who is there
+ * as well as supplies they have
+ */
 public class Location {
     private String name;
     private String address;
     private List<DisasterVictim> occupants;
     private List<Supply> supplies;
-
+//constructor
     public Location(String name, String address) {
         this.setName(name);
         this.setAddress(address);
-        this.supplies = new ArrayList<>(); // Initialize supplies list
+        this.supplies = new ArrayList<>();
         this.occupants = new ArrayList<>();
     }
-
+//setters and getters as well as add and remove methods
     public void setName(String name) {
         this.name = name;
     }
