@@ -1,5 +1,4 @@
 /**
- 
 @author  Aly Mohammed Masani <a href="mailto:alymohammed.masani@ucalgary.ca">
 alymohammed.masani@ucalgary.ca</a>
 @version 1.0
@@ -7,7 +6,6 @@ alymohammed.masani@ucalgary.ca</a>
 */
 
 package edu.ucalgary.oop;
-
 import edu.ucalgary.oop.*;
 
 import java.util.List;
@@ -17,39 +15,50 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DisasterVictim {
+
     private String firstName;
-    private String entryDate;
-    private String dateOfBirth;
     private String lastName;
-    private String gender;
+    private String dateOfBirth;
     private String comments;
-    private List<Supply> personalBelongings;
-    private List<FamilyRelation> familyConnections;
+    private int ASSIGNED_SOCIAL_ID;
     private MedicalRecord[] medicalRecords;
-    private static int socialIdCounter = 1000;
-    private int socialID;
+    private FamilyRelation[] familyConnections;
+    private String ENTRY_DATE;
+    private Supply[] personalBelongings;
+    private String gender;
+    private static int counter = 0;
 
-    public DisasterVictim(String firstName, String entryDate) {
+    public DisasterVictim(String firstName, String ENTRY_DATE) {
         this.firstName = firstName;
-        this.entryDate = entryDate;
-        this.dateOfBirth = "";
-        this.lastName = "";
-        this.gender = "";
-        this.comments = "";
-        this.personalBelongings = new ArrayList<>();
-        this.familyConnections = new ArrayList<>();
-        this.medicalRecords = new MedicalRecord[0];
-        this.socialID = socialIdCounter++;
-    }
-
-    public static boolean dateValidator(String date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            Date check = sdf.parse(date);
-            return true;
-        } catch (ParseException e) {
-            throw new IllegalArgumentException("Invalid date format or value: " + date);
+        if (ENTRY_DATE.charAt(4) != '-' || ENTRY_DATE.charAt(7) != '-' || ENTRY_DATE.length() != 10)
+            throw new IllegalArgumentException("Invalid date format " + ENTRY_DATE);
+        for (int j = 0; j < 4; j++) {
+            char c = ENTRY_DATE.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("Invalid date format " + ENTRY_DATE);
         }
+        for (int j = 5; j < 7; j++) {
+            char c = ENTRY_DATE.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("Invalid date format or invalid date " + ENTRY_DATE);
+        }
+        for (int j = 8; j < 10; j++) {
+            char c = ENTRY_DATE.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("Invalid date format or invalid date " + ENTRY_DATE);
+        }
+        int a = Character.getNumericValue(ENTRY_DATE.charAt(8));
+        int b = Character.getNumericValue(ENTRY_DATE.charAt(9));
+        if (a > 3 || a < 0 || b < 0 || b > 9 || (a == 3 && b > 1))
+            throw new IllegalArgumentException("Invalid date format or invalid date " + ENTRY_DATE);
+
+        int c = Character.getNumericValue(ENTRY_DATE.charAt(5));
+        int d = Character.getNumericValue(ENTRY_DATE.charAt(6));
+        if ((c == 1 && (d < 0 || d > 2)) || (c == 0 && (d < 0 || d > 9)))
+            throw new IllegalArgumentException("Invalid date format or invalid date " + ENTRY_DATE);
+
+        this.ENTRY_DATE = ENTRY_DATE;
+        this.ASSIGNED_SOCIAL_ID = counter++;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
@@ -62,22 +71,6 @@ public class DisasterVictim {
         return dateOfBirth;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
     public void setComments(String comments) {
         this.comments = comments;
     }
@@ -87,60 +80,154 @@ public class DisasterVictim {
     }
 
     public int getAssignedSocialID() {
-        return socialID;
+        return ASSIGNED_SOCIAL_ID;
     }
 
-    public String getEntryDate() {
-        return entryDate;
+    public void setAssignedSocialID(int ASSIGNED_SOCIAL_ID) {
+        this.ASSIGNED_SOCIAL_ID = ASSIGNED_SOCIAL_ID;
     }
 
-    public void setEntryDate(String date) {
-        if (dateValidator(date)) {
-            this.entryDate = date;
-        }
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setFamilyConnections(List<FamilyRelation> familyConnections) {
-        this.familyConnections = familyConnections;
-    }
-
-    public List<FamilyRelation> getFamilyConnections() {
-        return familyConnections;
-    }
-
-    public void addFamilyConnection(FamilyRelation relation) {
-        this.familyConnections.add(relation);
-    }
-
-    public void removeFamilyConnection(FamilyRelation relation) {
-        this.familyConnections.remove(relation);
-    }
-
-    public void addPersonalBelonging(Supply supply) {
-        this.personalBelongings.add(supply);
-    }
-
-    public void removePersonalBelonging(Supply supply) {
-        this.personalBelongings.remove(supply);
-    }
-
-    public List<Supply> getPersonalBelongings() {
-        return personalBelongings;
+    public MedicalRecord[] getMedicalRecords() {
+        return medicalRecords;
     }
 
     public void setMedicalRecords(MedicalRecord[] medicalRecords) {
         this.medicalRecords = medicalRecords;
     }
 
-    public MedicalRecord[] getMedicalRecords() {
-        return medicalRecords;
+    public FamilyRelation[] getFamilyConnections() {
+        return familyConnections;
+    }
+
+    public void setFamilyConnections(FamilyRelation[] familyConnections) {
+        this.familyConnections = familyConnections;
+    }
+
+    public String getEntryDate() {
+        return ENTRY_DATE;
+    }
+
+    public void setEntryDate(String ENTRY_DATE) {
+        if (dateValidator(ENTRY_DATE)) {
+            this.ENTRY_DATE = ENTRY_DATE;
+        }
+    }
+
+    public Supply[] getPersonalBelongings() {
+        return personalBelongings;
+    }
+
+    public void setPersonalBelongings(Supply[] personalBelongings) {
+        this.personalBelongings = personalBelongings;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void addFamilyConnection(FamilyRelation familyConnection) {
+        if (familyConnections == null) {
+            familyConnections = new FamilyRelation[1];
+            familyConnections[0] = familyConnection;
+        } else {
+            FamilyRelation[] newFamilyConnections = new FamilyRelation[familyConnections.length + 1];
+            System.arraycopy(familyConnections, 0, newFamilyConnections, 0, familyConnections.length);
+            newFamilyConnections[familyConnections.length] = familyConnection;
+            familyConnections = newFamilyConnections;
+        }
+    }
+
+    public void removeFamilyConnection(FamilyRelation familyConnection) {
+        if (familyConnections != null) {
+            for (int i = 0; i < familyConnections.length; i++) {
+                if (familyConnections[i].equals(familyConnection)) {
+                    removeFamilyConnectionAtIndex(i);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void removeFamilyConnectionAtIndex(int index) {
+        if (index < 0 || index >= familyConnections.length) {
+            return;
+        }
+        FamilyRelation[] newArray = new FamilyRelation[familyConnections.length - 1];
+        for (int i = 0, j = 0; i < familyConnections.length; i++) {
+            if (i != index) {
+                newArray[j++] = familyConnections[i];
+            }
+        }
+        familyConnections = newArray;
+    }
+
+    public void addMedicalRecord(MedicalRecord medicalRecord) {
+        if (medicalRecords == null) {
+            medicalRecords = new MedicalRecord[1];
+            medicalRecords[0] = medicalRecord;
+        } else {
+            MedicalRecord[] newMedicalRecords = new MedicalRecord[medicalRecords.length + 1];
+            System.arraycopy(medicalRecords, 0, newMedicalRecords, 0, medicalRecords.length);
+            newMedicalRecords[medicalRecords.length] = medicalRecord;
+            medicalRecords = newMedicalRecords;
+        }
+    }
+
+    public void addPersonalBelonging(Supply supply) {
+        if (supply == null) {
+            throw new IllegalArgumentException("Supply cannot be null");
+        }
+
+        if (personalBelongings == null) {
+            personalBelongings = new Supply[1];
+            personalBelongings[0] = supply;
+        } else {
+            Supply[] newPersonalBelongings = new Supply[personalBelongings.length + 1];
+            System.arraycopy(personalBelongings, 0, newPersonalBelongings, 0, personalBelongings.length);
+            newPersonalBelongings[personalBelongings.length] = supply;
+            personalBelongings = newPersonalBelongings;
+        }
+    }
+
+    public void removePersonalBelonging(Supply supplyToRemove) {
+        if (supplyToRemove == null) {
+            throw new IllegalArgumentException("Supply to remove cannot be null");
+        }
+
+        if (personalBelongings != null) {
+            for (int i = 0; i < personalBelongings.length; i++) {
+                if (personalBelongings[i].equals(supplyToRemove)) {
+                    removePersonalBelongingAtIndex(i);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void removePersonalBelongingAtIndex(int index) {
+        if (index < 0 || index >= personalBelongings.length) {
+            return;
+        }
+        Supply[] newArray = new Supply[personalBelongings.length - 1];
+        for (int i = 0, j = 0; i < personalBelongings.length; i++) {
+            if (i != index) {
+                newArray[j++] = personalBelongings[i];
+            }
+        }
+        personalBelongings = newArray;
+    }
+
+    private static boolean dateValidator(String date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date check = sdf.parse(date);
+            return true;
+        } catch (ParseException e) {
+            throw new IllegalArgumentException("Invalid date format or value: " + date);
+        }
     }
 }
